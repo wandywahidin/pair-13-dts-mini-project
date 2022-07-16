@@ -21,11 +21,15 @@ const MainHome = () => {
   return (
     <>
       <Carousel
-        axis="horizontal"
-        interval={1}
         showArrows={true}
         showThumbs={false}
         showStatus={false}
+        showIndicators={false}
+        axis={'horizontal'}
+        autoPlay={true}
+        interval={5000}
+        transitionTime={500}
+        infiniteLoop={true}
       >
         {mainComponent.map((item) => (
           <Box
