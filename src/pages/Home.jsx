@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
     <MainHome/>
-    <Row title={'Popular'} fetchApi={requests.requestPopular}/>
+    <Row title={'Now Playing'} fetchApi={requests.requestNowPlaying}/>
     <Row title={'Top Rated'} fetchApi={requests.requestTopRated}/>
     <Row title={'Up Coming'} fetchApi={requests.requestUpcoming}/>
     </>

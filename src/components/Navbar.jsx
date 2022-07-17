@@ -15,7 +15,7 @@ import MenuItem from '@mui/material/MenuItem';
 // logo
 import logo from '../assets/logo.svg'
 
-const pages = ['Home', 'Series','Movies', 'New And Popular', 'My List'];
+const pages = ['Home', 'Trending','Up Coming', 'Now Playing', 'My List'];
 const settings = ['Profile', 'Logout'];
 
 const ResponsiveAppBar = () => {
