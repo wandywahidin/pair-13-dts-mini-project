@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Slider from "react-slick";
-import axios from "axios";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-const Row = ({ title, fetchApi }) => {
-  const [movie, setMovie] = useState([]);
-  useEffect(() => {
-    axios.get(fetchApi).then((response) => {
-      setMovie(response.data.results);
-    });
-  }, [fetchApi]);
+const Row = ({ title, movie }) => {
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;

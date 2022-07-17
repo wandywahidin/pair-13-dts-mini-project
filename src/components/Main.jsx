@@ -1,23 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import requests from "../requestApi";
+import React from "react";
 import { Box, Typography } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 
-const MainHome = () => {
-  const [mainComponent, setMainComponent] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(requests.requestPopular)
-      .then((response) => {
-        setMainComponent(response.data.results);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
-
+const Main = ({movie}) => {
   return (
     <>
       <Carousel
@@ -31,7 +16,7 @@ const MainHome = () => {
         transitionTime={500}
         infiniteLoop={true}
       >
-        {mainComponent.map((item) => (
+        {movie.map((item) => (
           <Box
             sx={{ width: "100%", height: 600, backgroundColor: "#141414" }}
             key={item.id}
@@ -87,4 +72,4 @@ const MainHome = () => {
   );
 };
 
-export default MainHome;
+export default Main;

@@ -1,22 +1,22 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import { Link } from "react-router-dom";
 
 // logo
-import logo from '../assets/logo.svg'
+import logo from "../assets/logo.svg";
 
-const pages = ['Home', 'Trending','Up Coming', 'Now Playing', 'My List'];
-const settings = ['Profile', 'Logout'];
+const settings = ["Profile", "Logout"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,11 +38,13 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{background : '#141414' }}>
-      <Container maxWidth="xl" >
+    <AppBar position="static" sx={{ background: "#141414" }}>
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src={logo} alt='logo' style={{'width' : 25}} />
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Link to="/trending">
+            <img src={logo} alt="logo" style={{ width: 25 }} />
+          </Link>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -57,37 +59,80 @@ const ResponsiveAppBar = () => {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseNavMenu} sx={{display:'block'}}>
+                <Link to="/home" style={{textDecoration:'none', color:'black', borderBottom:'solid 2px black'}}>
+                  <Typography textAlign="start" borderBottom={'solid 2px black'} marginBottom={2}>Home</Typography>
+                </Link>
+                <Link to="/trending" style={{textDecoration:'none', color:'black', borderBottom:'solid 2px black'}}>
+                  <Typography textAlign="start" borderBottom={'solid 2px black'} marginBottom={2}>Trending</Typography>
+                </Link>
+                <Link to="/upcoming" style={{textDecoration:'none', color:'black', borderBottom:'solid 2px black'}}>
+                  <Typography textAlign="start" borderBottom={'solid 2px black'} marginBottom={2}>Up Coming</Typography>
+                </Link>
+                <Link to="/nowplaying" style={{textDecoration:'none', color:'black', borderBottom:'solid 2px black'}}>
+                  <Typography textAlign="start" borderBottom={'solid 2px black'} marginBottom={2}>Now Playing</Typography>
+                </Link>
+                <Link to="/mylist" style={{textDecoration:'none', color:'black', borderBottom:'solid 2px black'}}>
+                  <Typography textAlign="start" borderBottom={'solid 2px black'} marginBottom={2}>My List</Typography>
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <Link to="/home" style={{textDecoration:'none', color:'white'}}>
+                <Typography textAlign="center">Home</Typography>
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <Link to="/trending" style={{textDecoration:'none', color:'white'}}>
+                <Typography textAlign="center">Trending</Typography>
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <Link to="/upcoming" style={{textDecoration:'none', color:'white'}}>
+                <Typography textAlign="center">up coming</Typography>
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <Link to="/nowplaying" style={{textDecoration:'none', color:'white'}}>
+                <Typography textAlign="center">now playing</Typography>
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <Link to="/mylist" style={{textDecoration:'none', color:'white'}}>
+                <Typography textAlign="center">my list</Typography>
+              </Link>
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -97,17 +142,17 @@ const ResponsiveAppBar = () => {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
