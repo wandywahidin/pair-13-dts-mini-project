@@ -28,21 +28,21 @@ function App() {
     axios.get(requests.requestNowPlaying).then((response) => {
       setRowMovieNowPlaying(response.data.results);
     });
-  });
+  },[]);
 
   // data untuk Top rated
   useEffect(() => {
     axios.get(requests.requestTopRated).then((response) => {
       setRowMovieTopRated(response.data.results);
     });
-  });
+  },[]);
 
   // data untuk Up coming
   useEffect(() => {
     axios.get(requests.requestUpcoming).then((response) => {
       setRowMovieUpComing(response.data.results);
     });
-  });
+  },[]);
 
   return (
     <div className="App">
