@@ -41,7 +41,7 @@ const ResponsiveAppBar = () => {
     <AppBar position="static" sx={{ background: "#141414" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link to="/trending">
+          <Link to="/">
             <img src={logo} alt="logo" style={{ width: 25 }} />
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -74,7 +74,7 @@ const ResponsiveAppBar = () => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu} sx={{display:'block'}}>
-                <Link to="/home" style={{textDecoration:'none', color:'black', borderBottom:'solid 2px black'}}>
+                <Link to="/" style={{textDecoration:'none', color:'black', borderBottom:'solid 2px black'}}>
                   <Typography textAlign="start" borderBottom={'solid 2px black'} marginBottom={2}>Home</Typography>
                 </Link>
                 <Link to="/trending" style={{textDecoration:'none', color:'black', borderBottom:'solid 2px black'}}>
@@ -97,7 +97,7 @@ const ResponsiveAppBar = () => {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              <Link to="/home" style={{textDecoration:'none', color:'white'}}>
+              <Link to="/" style={{textDecoration:'none', color:'white'}}>
                 <Typography textAlign="center">Home</Typography>
               </Link>
             </Button>

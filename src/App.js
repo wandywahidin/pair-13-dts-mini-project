@@ -48,7 +48,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/home" element={<Home movie={mainMovie} />} />
+        <Route path="/" element={<Home movie={mainMovie} />} />
         <Route path="/trending" element={<Home movie={rowMovieTopRated} />} />
         <Route path="/upcoming" element={<Home movie={rowMovieUpComing} />} />
         <Route path="/nowplaying" element={<Home movie={rowMovieNowPlaying} />} />

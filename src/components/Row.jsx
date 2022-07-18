@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-const Row = ({ title, movie }) => {
+const Row = (props) => {
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -37,12 +37,12 @@ const Row = ({ title, movie }) => {
     prevArrow : <SamplePrevArrow/>,
   };
   return (
-    <div style={{backgroundColor:'#141414', padding:'10px'}}>
+    <div style={{backgroundColor:'#141414', padding:'10px'}}>n
       <Typography variant="h5" textAlign={"start"} fontWeight={"bold"} color={'white'}>
-        {title}
+        {props.title}
       </Typography>
       <Slider {...setting}>
-        {movie.map((item) => {
+        {props.movie.map((item) => {
             return (
                 <Box key={item.id} border={'solid 10px'} position={'relative'}>
                     <img style={{width:'100%'}} src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt={item.title} />
