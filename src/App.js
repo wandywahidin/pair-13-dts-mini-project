@@ -9,6 +9,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Routes, Route } from "react-router-dom";
+import Navbar2 from "./components/Navbar2";
 
 function App() {
   const [mainMovie, setMainMovie] = useState([]);
@@ -46,7 +47,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar2 />
       <Routes>
         <Route path="/" element={<Home movie={mainMovie} />} />
         <Route path="/trending" element={<Home movie={rowMovieTopRated} />} />
