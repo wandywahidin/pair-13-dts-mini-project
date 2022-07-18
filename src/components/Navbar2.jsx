@@ -19,6 +19,7 @@ const Navbar2 = () => {
           justifyContent: "space-between",
           alignItems: "center",
           padding: "10px",
+          zIndex:100
         }}
       >
         <Box sx={{ width: "40px" }}>
@@ -54,7 +55,7 @@ const Navbar2 = () => {
           </Button>
         </Box>
         <Box sx={{ display: "flex" }}>
-          <Box sx={{ display: { xs: "flex", md: "none"} }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             {togle ? (
               <Box
                 sx={{
@@ -63,7 +64,7 @@ const Navbar2 = () => {
                   position: "absolute",
                   top: 20,
                   right: 0,
-                  paddingRight:1,
+                  paddingRight: 1,
                   zIndex: 150,
                 }}
               >
@@ -82,11 +83,11 @@ const Navbar2 = () => {
                   position: "absolute",
                   top: 20,
                   right: 0,
-                  paddingRight:1,
+                  paddingRight: 1,
                   paddingLeft: 3,
-                  paddingBottom:3,
+                  paddingBottom: 3,
                   zIndex: 150,
-                  bgcolor:'rgba(0,0,0,0.8)'
+                  bgcolor: "rgba(0,0,0,0.8)",
                 }}
               >
                 <CloseIcon
@@ -139,7 +140,7 @@ const Navbar2 = () => {
               padding={0.5}
               borderRadius={"5px"}
             >
-              Sign In
+              <Link to="/login">Sign In</Link>
             </Typography>
             <Typography
               color={"white"}
@@ -147,7 +148,7 @@ const Navbar2 = () => {
               padding={0.5}
               borderRadius={"5px"}
             >
-              Sign Up
+              <Link to="/register">Sign Up</Link>
             </Typography>
           </Box>
         </Box>

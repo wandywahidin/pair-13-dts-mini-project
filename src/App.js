@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "./components/Navbar";
 import "./App.css";
 import Home from "./pages/Home";
 import Row from "./components/Row";
@@ -10,6 +9,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar2 from "./components/Navbar2";
+import "./App.css";
+
+import { Login, Register, Profile } from "./pages";
 
 function App() {
   const [mainMovie, setMainMovie] = useState([]);
@@ -53,6 +55,9 @@ function App() {
         <Route path="/trending" element={<Home movie={rowMovieTopRated} />} />
         <Route path="/upcoming" element={<Home movie={rowMovieUpComing} />} />
         <Route path="/nowplaying" element={<Home movie={rowMovieNowPlaying} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Row title={"Now Playing"} movie={rowMovieNowPlaying} />
       <Row title={"Top Rated"} movie={rowMovieTopRated} />
