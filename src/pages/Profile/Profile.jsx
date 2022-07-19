@@ -15,9 +15,9 @@ const Profile = () => {
                 <CardProfilePicture image={ProfilePicture4} name={"Cocuk"}/>
                 <CardProfilePicture image={AddIcon} name={"Other"} type={"Add"}/>
             </div>
-            <button className='bg-transparent border py-1 px-3 border-slate-500 text-slate-500 text-xs hover:bg-neutral-800 sm:text-2xl'>MANAGE PROFILE</button>
+            <button className='bg-transparent border py-1 px-3 border-slate-500 text-slate-500 text-xs hover:bg-neutral-800 sm:text-xl'>MANAGE PROFILE</button>
         </div>
-        <img src={Logo} alt='logo' className='absolute top-2 left-5 w-5 h-5 sm:top-2 sm:left-12 sm:w-24 sm:h-24' />
+        <img src={Logo} alt='logo' className='absolute top-2 left-5 w-5 h-5 sm:top-2 sm:left-12 sm:w-14 sm:h-14' />
     </div>
   )
 }
