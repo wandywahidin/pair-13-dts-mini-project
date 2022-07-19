@@ -2,7 +2,8 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 
-const Main = ({movie}) => {
+const Main = ({movie, handleToDetail}) => {
+  
   return (
     <>
       <Carousel
@@ -19,7 +20,7 @@ const Main = ({movie}) => {
         {movie.map((item) => (
           <Box
             sx={{ width: "100%", height: 600, backgroundColor: "#141414" }}
-            key={item.id}
+            key={item.id} onClick={() => handleToDetail(item.id)}
           >
             <img
               src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
@@ -62,6 +63,8 @@ const Main = ({movie}) => {
               textAlign={"start"}
               color={"white"}
               marginBottom={0}
+              display={'flex'}
+              flexDirection={"column"}
             >
               {item.overview}
             </Typography>
