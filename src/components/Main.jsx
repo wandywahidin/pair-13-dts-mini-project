@@ -2,76 +2,69 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 
-const Main = ({movie, handleToDetail}) => {
-  
+const Main = ({ movie, handleToDetail }) => {
   return (
-    <>
+    <Box sx={{height:{xs:'100%', md:'90vh'}}}>
       <Carousel
         showArrows={true}
         showThumbs={false}
         showStatus={false}
         showIndicators={false}
-        axis={'horizontal'}
+        axis={"horizontal"}
         autoPlay={true}
         interval={5000}
         transitionTime={500}
         infiniteLoop={true}
+        dynamicHeight={true}
       >
         {movie.map((item) => (
           <Box
-            sx={{ width: "100%", height: 600, backgroundColor: "#141414" }}
-            key={item.id} onClick={() => handleToDetail(item.id)}
+            sx={{ width: "100%", backgroundColor: "#141414", height:'90vh' }}
+            key={item.id}
+            onClick={() => handleToDetail(item.id)}
           >
             <img
               src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
               alt="main"
-              style={{ objectFit: "cover", width: "100vw", height: "90vh" }}
+              style={{ objectFit: "cover", width: "100vw" }}
+              className='md:h-full'
             />
-            <Typography
-              position={"absolute"}
-              top={150}
-              width={"60%"}
-              paddingLeft={8}
-              variant={"h1"}
-              fontSize={"2em"}
-              textAlign={"start"}
-              color={"white"}
-              marginBottom={0}
+            <Box
+              sx={{
+                position: "absolute",
+                top: { xs: 40, lg: 150 },
+                paddingLeft: { xs: "20px", md: "50px" },
+                width: { xs: "80%", md: "60%" },
+                textAlign: "start",
+                color: "white",
+              }}
             >
-              {item.title}
-            </Typography>
-            <Typography
-              position={"absolute"}
-              top={200}
-              width={"40%"}
-              paddingLeft={8}
-              variant={'h6'}
-              fontSize={"1em"}
-              textAlign={"start"}
-              color={"white"}
-              marginBottom={0}
-            >
-              Released : {item.release_date}
-            </Typography>
-            <Typography
-              position={"absolute"}
-              top={230}
-              width={"40%"}
-              paddingLeft={8}
-              variant={'h6'}
-              fontSize={"1em"}
-              textAlign={"start"}
-              color={"white"}
-              marginBottom={0}
-              display={'flex'}
-              flexDirection={"column"}
-            >
-              {item.overview}
-            </Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: "1rem", md: "2rem" },
+                }}
+              >
+                {item.title}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: "0.5rem", md: "1rem" },
+                }}
+              >
+                Released : {item.release_date}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: "0.5rem", md: "1rem" },
+                }}
+              >
+                {item.overview}
+              </Typography>
+            </Box>
           </Box>
         ))}
       </Carousel>
-    </>
+    </Box>
   );
 };
 

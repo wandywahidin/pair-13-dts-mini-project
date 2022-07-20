@@ -2,14 +2,14 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className=' w-[80%] mx-auto text-justify flex justify-between text-gray-400 my-24 text-sm'>
+    <div className=' w-[80%] mx-auto text-justify flex flex-wrap-reverse justify-between text-gray-400 my-20 text-sm'>
         <div className='flex flex-col cursor-pointer'>
             <p>Auidio and Subtitle</p>
             <p>Media Center</p>
             <p>Security</p>
             <p>Contact Us</p>
             <p className='p-2 border border-gray-400 text-base my-2 w-[70%] text-center'>Service Code</p>
-            <p className='text-xs'>&copy; 2022 Movies, All Right Reserved</p>
+            <p className='text-xs'>&copy; 2022 Wandy & Reza, All Right Reserved</p>
         </div>
         <div className='flex flex-col cursor-pointer'>
             <p>Auidio Description</p>
