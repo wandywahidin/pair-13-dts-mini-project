@@ -4,7 +4,21 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import {auth} from '../config/firebase'
+import { useNavigate } from "react-router-dom";
+import PersonIcon from '@mui/icons-material/Person';
+
 const Navbar2 = () => {
+  const [user, loading, error] = useAuthState(auth)
+  const navigate = useNavigate();
+
+  const logOut = ()=> {
+    signOut(auth)
+    navigate('/')
+  }
+
   const [togle, setTogle] = useState(true);
   const togleHandler = () => {
     setTogle(!togle);
@@ -134,22 +148,57 @@ const Navbar2 = () => {
             )}
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
-            <Typography
+            {
+              loading ? <Typography
               color={"white"}
               bgcolor={"red"}
               padding={0.5}
               borderRadius={"5px"}
             >
-              <Link to="/login">Sign In</Link>
+              Inisialising user
+            </Typography> : error ? <Typography
+              color={"white"}
+              bgcolor={"red"}
+              padding={0.5}
+              borderRadius={"5px"}
+            >
+              error
+            </Typography> : user ? 
+            <>
+            <Typography
+              color={"white"}
+              bgcolor={"red"}
+              borderRadius={"5px"}
+            >
+              <Button sx={{color:'white'}} onClick={logOut}>Sign Out</Button>
+            </Typography>
+            <Typography
+              color={"white"}
+              border={'1px solid white'}
+              borderRadius={"5px"}
+            >
+              <Button sx={{color:'white'}}>{user.email}</Button>
+            </Typography>
+            </> :
+            <>
+            <PersonIcon onClick={() => navigate('/profile')} fontSize="large" sx={{color:'white', margin: 'auto'}}/>
+            <Typography
+              color={"white"}
+              bgcolor={"red"}
+              borderRadius={"5px"}
+            >
+              <Button sx={{color:'white'}} onClick={()=> navigate('/login')}>Sign In</Button>
             </Typography>
             <Typography
               color={"white"}
               border={"1px solid white"}
-              padding={0.5}
               borderRadius={"5px"}
             >
-              <Link to="/register">Sign Up</Link>
+              <Button sx={{color:'white'}} onClick={()=> navigate('/register')}>Sign Up</Button>
             </Typography>
+            </>
+            }
+            
           </Box>
         </Box>
       </Box>

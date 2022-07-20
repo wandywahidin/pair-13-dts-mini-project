@@ -46,7 +46,7 @@ const Row = ({title, movie, handleToDetail}) => {
             (
                 <Box key={item.id} border={'solid 10px'} position={'relative'} onClick={()=> handleToDetail(item.id)}>
                     <img style={{width:'100%'}} src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt={item.title} />
-                    <Box sx={{width:'100%', height:'100%', backgroundColor:'rgba(0,0,0,0.4)', top:0, position:'absolute', color:'white', opacity:0, alignContent:'center', '&:hover' : {opacity:100}}} >{item.title}</Box>
+                    <Box sx={{width:'100%', height:'100%', backgroundColor:'rgba(0,0,0,0.6)', top:0, position:'absolute', color:'white', opacity:0, alignContent:'center', '&:hover' : {opacity:100}}} >{item.title}</Box>
                 </Box>
             )
         )}

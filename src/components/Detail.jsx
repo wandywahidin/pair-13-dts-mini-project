@@ -13,8 +13,6 @@ const Detail = () => {
           setMovieDetail(response.data);
         });
       },[movieId]);
-
-      console.log(movieDetail);
     
   return (
     <>

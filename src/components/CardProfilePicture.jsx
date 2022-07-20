@@ -2,7 +2,7 @@ import React from 'react'
 
 const CardProfilePicture = ({image, name, type}) => {
   return (
-    <div className='flex flex-col justify-between items-center w-16 mt-4 mb-5 sm:w-48 sm:mt-10 sm:mb-12'>
+    <div className='flex flex-col justify-between items-center w-16 mt-4 mb-5 sm:w-36 sm:mt-10 sm:mb-12'>
         {type === 'Add' ? 
             <>  
                 <div className='flex justify-center items-center w-full h-full'>
