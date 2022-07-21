@@ -44,27 +44,27 @@ const Navbar2 = () => {
         <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
           <Button>
             <Link style={{ textDecoration: "none" }} to="/">
-              <Typography color={"white"}>Home</Typography>
+              <Typography sx={{color:'white', fontWeight:'bold', ":hover":{color:'red'}}}>Home</Typography>
             </Link>
           </Button>
           <Button>
             <Link style={{ textDecoration: "none" }} to="/trending">
-              <Typography color={"white"}>Trending</Typography>
+              <Typography sx={{color:'white', fontWeight:'bold', ":hover":{color:'red'}}}>Trending</Typography>
             </Link>
           </Button>
           <Button>
             <Link style={{ textDecoration: "none" }} to="/nowplaying">
-              <Typography color={"white"}>Now Playing</Typography>
+              <Typography sx={{color:'white', fontWeight:'bold', ":hover":{color:'red'}}}>Now Playing</Typography>
             </Link>
           </Button>
           <Button>
             <Link style={{ textDecoration: "none" }} to="/upcoming">
-              <Typography color={"white"}>Up Coming</Typography>
+              <Typography sx={{color:'white', fontWeight:'bold', ":hover":{color:'red'}}}>Up Coming</Typography>
             </Link>
           </Button>
           <Button>
             <Link style={{ textDecoration: "none" }} to="/">
-              <Typography color={"white"}>My List</Typography>
+              <Typography sx={{color:'white', fontWeight:'bold', ":hover":{color:'red'}}}>My List</Typography>
             </Link>
           </Button>
         </Box>
@@ -149,7 +149,14 @@ const Navbar2 = () => {
                     </Link>
                   </Button>
                 </Box>
-                <Box sx={{ display: "flex", flexDirection:'column', mt: 4, gap: 1 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    mt: 4,
+                    gap: 1,
+                  }}
+                >
                   {loading ? (
                     <Typography
                       color={"white"}
@@ -171,15 +178,12 @@ const Navbar2 = () => {
                     </Typography>
                   ) : user ? (
                     <>
-                      <Typography
-                        color={"white"}
-                      >{user.email}
-                      </Typography>
+                      <Typography color={"white"}>{user.email}</Typography>
                       <Button
                         size="small"
-                        sx={{ color: "white", bgcolor:'red', width:'80%'}}
+                        sx={{ color: "white", bgcolor: "red", width: "80%" }}
                         onClick={logOut}
-                        variant='contained'
+                        variant="contained"
                       >
                         Sign Out
                       </Button>
@@ -195,7 +199,7 @@ const Navbar2 = () => {
                           sx={{ color: "white" }}
                           onClick={() => {
                             navigate("/login");
-                            togleHandler()
+                            togleHandler();
                           }}
                         >
                           Sign In
@@ -210,7 +214,7 @@ const Navbar2 = () => {
                           sx={{ color: "white" }}
                           onClick={() => {
                             navigate("/register");
-                            togleHandler()
+                            togleHandler();
                           }}
                         >
                           Sign Up
@@ -247,8 +251,16 @@ const Navbar2 = () => {
                   color={"white"}
                   bgcolor={"red"}
                   borderRadius={"5px"}
+                  border={'1px solid red'}
                 >
-                  <Button sx={{ color: "white" }} onClick={logOut}>
+                  <Button
+                    sx={{
+                      color: "white",
+                      fontWeight: "bold",
+                      ":hover": { bgcolor: "black", color: "red" },
+                    }}
+                    onClick={logOut}
+                  >
                     Sign Out
                   </Button>
                 </Typography>
@@ -270,13 +282,18 @@ const Navbar2 = () => {
                 <Typography
                   color={"white"}
                   bgcolor={"red"}
+                  border={"1px solid red"}
                   borderRadius={"5px"}
                 >
                   <Button
-                    sx={{ color: "white" }}
+                    sx={{
+                      color: "white",
+                      fontWeight: "bold",
+                      ":hover": { bgcolor: "black", color: "red" },
+                    }}
                     onClick={() => navigate("/login")}
                   >
-                    Sign In
+                    Login
                   </Button>
                 </Typography>
                 <Typography
@@ -285,10 +302,14 @@ const Navbar2 = () => {
                   borderRadius={"5px"}
                 >
                   <Button
-                    sx={{ color: "white" }}
+                    sx={{
+                      color: "white",
+                      fontWeight: "bold",
+                      ":hover": { bgcolor: "white", color: "black" },
+                    }}
                     onClick={() => navigate("/register")}
                   >
-                    Sign Up
+                    Register
                   </Button>
                 </Typography>
               </>

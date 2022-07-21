@@ -29,6 +29,7 @@ const Main = ({ movie, handleToDetail }) => {
               style={{ objectFit: "cover", width: "100vw" }}
               className='md:h-full'
             />
+            <div className="w-full h-full absolute top-0 bg-gradient-to-r from-black"></div>
             <Box
               sx={{
                 position: "absolute",
@@ -42,6 +43,7 @@ const Main = ({ movie, handleToDetail }) => {
               <Typography
                 sx={{
                   fontSize: { xs: "1rem", md: "2rem" },
+                  fontWeight:'bold'
                 }}
               >
                 {item.title}

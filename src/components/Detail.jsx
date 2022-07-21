@@ -29,36 +29,59 @@ const Detail = () => {
         }}
         key={movieDetail.id}
       >
-        <img
-          src={`https://image.tmdb.org/t/p/original/${movieDetail.backdrop_path}`}
-          alt="main"
-          style={{ objectFit: "cover", width: "100vw" }}
-          className="md:h-full"
-        />
+        <Box sx={{ width: "100%", height: { xs: "100%", md: "90vh" } }}>
+          <div className=" object-cover w-full md:h-[90vh] absolute bg-gradient-to-r from-black"></div>
+          <img
+            src={`https://image.tmdb.org/t/p/original/${movieDetail.backdrop_path}`}
+            alt="main"
+            style={{ objectFit: "cover", width: "100vw" }}
+            className="md:h-full"
+          />
+        </Box>
         <Box
           sx={{
             position: "absolute",
-            top: { xs: 120, md: 210 },
+            top: { xs: 100, md: 180 },
             paddingLeft: { xs: "20px", md: "50px" },
-            width: { xs: "80%", md: "60%" },
+            width: { xs: "90%", md: "80%" },
             textAlign: "start",
             color: "white",
+            display:'flex',
+            justifyContent:'space-between'
           }}
         >
-          <Typography
-            sx={{
-              fontSize: { xs: "1.5rem", md: "2.5rem" },
-            }}
-          >
-            {movieDetail.title}
-          </Typography>
-          <button className="border md:w-48 md:h-12 md:text-2xl px-2 text-black bg-white rounded mt-2 mr-4">
-            <PlayArrow />
-            Play
-          </button>
-          <button className=" text-white mt-2">
-            <InfoIcon fontSize="small" />
-          </button>
+          <Box sx={{width:'100%', marginRight:'20px'}}>
+            <Typography
+              sx={{
+                fontSize: { xs: "1.5rem", md: "2.5rem" },
+              }}
+            >
+              {movieDetail.title}
+            </Typography>
+            <button className="border border-black md:w-48 md:h-12 md:text-2xl px-2 text-black bg-white rounded mt-2 mr-4 font-bold hover:bg-black/20 hover:text-white hover:border-white">
+              <PlayArrow fontSize="large" />
+              Play
+            </button>
+            <button className=" text-white mt-2">
+              <InfoIcon
+                fontSize="large"
+                sx={{
+                  border: "1px solid black",
+                  background: "black",
+                  borderRadius: "50%",
+                  ":hover": { color: "black", background: "white" },
+                }}
+              />
+            </button>
+          </Box>
+          <Box sx={{width:'50%',}}>
+            <img
+              src={`https://image.tmdb.org/t/p/original/${movieDetail.poster_path}`}
+              alt="main"
+              style={{ objectFit: "cover"}}
+              className="md:-mt-16"
+            />
+          </Box>
         </Box>
       </Box>
       <Box
@@ -68,18 +91,13 @@ const Detail = () => {
           marginBottom: "20px",
           paddingBottom: "10px",
           borderBottom: "solid 5px gray",
-          textAlign:'justify', fontSize:{xs:'1rem', md:'2.8rem'}
+          textAlign: "justify",
+          fontSize: { xs: "1rem", md: "2.8rem" },
         }}
       >
-        <Typography>
-          Release Date : {movieDetail.release_date}
-        </Typography>
-        <Typography>
-          Popularity : {movieDetail.popularity}
-        </Typography>
-        <Typography>
-          Description : {movieDetail.overview}
-        </Typography>
+        <Typography>Release Date : {movieDetail.release_date}</Typography>
+        <Typography>Popularity : {movieDetail.popularity}</Typography>
+        <Typography>Description : {movieDetail.overview}</Typography>
       </Box>
     </>
   );
