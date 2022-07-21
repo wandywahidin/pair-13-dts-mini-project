@@ -11,6 +11,7 @@ const Login = () => {
     signInWithEmailAndPassword,
     user,
     loading,
+    error
   ] = useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
 
@@ -40,6 +41,7 @@ const Login = () => {
           <form action="" onSubmit={loginSubmitHandler}>
             <input type="email" placeholder='EMAIL' className='block w-full py-3 pl-5 bg-zinc-800 hover:bg-zinc-900 focus:bg-zinc-900 border border-solid border-slate-50 rounded text-slate-400 sm:w-2/5 sm:py-4 sm:pl-7 sm:text-lg sm:ml-auto' onChange={inputEmailHandler} value={credentials.email}/>
             <input type="password" placeholder='PASSWORD' className='block w-full py-3 pl-5 mt-1 bg-zinc-800 hover:bg-zinc-900 focus:bg-zinc-900 border border-solid border-slate-50 rounded text-slate-400 sm:w-2/5 sm:py-4 sm:pl-7 sm:mt-5 sm:text-lg sm:ml-auto' onChange={inputPasswordHandler} value={credentials.password}/>
+            <p className='text-white sm:w-2/5 mt-2 sm:ml-auto'>{error ? error.message : null}</p>
             <button className='block w-full h-12 mt-4 bg-red-600 hover:bg-red-700 rounded text-white sm:w-2/5 sm:h-14 sm:mt-12 sm:ml-auto'>{loading? 'LOADING......' : 'L O G I N'}</button>
             <p className='text-white sm:w-2/5 sm:h-14 sm:mt-12 sm:ml-auto'>Belum Punya Akun? <span className='font-bold mx-2'><Link className='text-white' to='/register'>Sign Up</Link></span></p>
           </form>

@@ -35,7 +35,7 @@ const Main = ({ movie, handleToDetail }) => {
                 position: "absolute",
                 top: { xs: 40, lg: 150 },
                 paddingLeft: { xs: "20px", md: "50px" },
-                width: { xs: "80%", md: "60%" },
+                width: { xs: "70%", md: "30%" },
                 textAlign: "start",
                 color: "white",
               }}
