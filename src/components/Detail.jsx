@@ -29,7 +29,7 @@ const Detail = () => {
 
   const onPlay = (x) => {
     if(x === "") {
-      return alert('home page tidak tersedia')
+      return null
     } else{
       return window.open(x)
     }
