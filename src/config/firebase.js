@@ -2,13 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBxe9mVIB5TmH6NFmhGZWyxK6xxGEUINRk",
-  authDomain: "dts-project-f8799.firebaseapp.com",
-  projectId: "dts-project-f8799",
-  storageBucket: "dts-project-f8799.appspot.com",
-  messagingSenderId: "1057596507078",
-  appId: "1:1057596507078:web:e5831d54ccf8ef9fafe8c7",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MS_SENDER,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
+
 
 
 // Initialize Firebase
